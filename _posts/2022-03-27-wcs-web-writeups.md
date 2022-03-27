@@ -1,14 +1,10 @@
 ---
 layout: post
-title: test
-subtitle: test1
-cover-img: /assets/img/path.jpg
+title: Web Chal Writeups for WolvSec CTF
+subtitle: Dom Clobbering | XSS | Host Header | CSP 
+cover-img: /assets/img/wsc.jpg
 thumbnail-img: /assets/img/thumb.png
-share-img: /assets/img/path.jpg
-tags: [test]
+share-img: /assets/img/wsc.jpg
+tags: [Web]
 ---
 
-`aa`
-# H!
-## h1
-### h3
