@@ -368,7 +368,7 @@ window.onload = () => {
 ```
 
 
-* This Javascript Loads with we Visit, `/personalize?image=<url>`
+* This Javascript Loads when we Visit, `/personalize?image=<url>`
 
 <img src="https://i.imgur.com/PMybUaS.png">
 
