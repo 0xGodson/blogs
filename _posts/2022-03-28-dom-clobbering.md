@@ -3,7 +3,7 @@ layout: post
 title: Dom Clobbering to Overwrite Undefined variable or Objects!
 subtitle: Dom Clobbering | Host Header
 cover-img: /assets/img/wsc.jpg
-thumbnail-img: /assets/img/thumb.png
+thumbnail-img: /assets/img/wsc.jpg
 share-img: /assets/img/wsc.jpg
 tags: [Web]
 ---
