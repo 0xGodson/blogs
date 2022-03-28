@@ -15,9 +15,6 @@ author: 0xGodson
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
   Author's home: "https://0xgodson.github.io"
 
 # --- Logo --- #
