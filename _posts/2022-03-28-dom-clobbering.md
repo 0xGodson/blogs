@@ -12,7 +12,7 @@ tags: [Web]
 
 <br>
 
-<img src="https://i.imgur.com/U5scICW.png"></img>
+<img src="https://i.imgur.com/U5scICW.png">
 
 <br>
 Chal Description: 
@@ -27,7 +27,7 @@ Another XSS Chal at First sight, But The Chal Name says  `Clobber!`
 
 <br>
 
-<img src="https://i.imgur.com/DIsF6wR.png"></img>
+<img src="https://i.imgur.com/DIsF6wR.png">
 
 ## Functionalities
 
@@ -284,7 +284,7 @@ if (parsedURL.protocol !== 'http:' && parsedURL.protocol != 'https:') {
 ```
 * parsedUrl is a Object with key and values like Protocol, Host, Hostname, path...
 
-<img src="https://i.imgur.com/KE4b8jl.png"></img>
+<img src="https://i.imgur.com/KE4b8jl.png">
 
 * Only HTTP and HTTPS Protocols are allowed
 * req.hostname is just the Request HOST header value.
@@ -294,7 +294,7 @@ if (parsedURL.protocol !== 'http:' && parsedURL.protocol != 'https:') {
 
 ## HTML Injection:
 
-<img src="https://i.imgur.com/gahcR9J.png"></img>
+<img src="https://i.imgur.com/gahcR9J.png">
 
 * We Can Perform HTMLi bcoz, Our Input is Not Filtered and Directly passed to the below Mentioned Template.
 
@@ -324,7 +324,7 @@ if (parsedURL.protocol !== 'http:' && parsedURL.protocol != 'https:') {
 
 <br>
 
-<img src="https://i.imgur.com/RYHURYX.png"></img>
+<img src="https://i.imgur.com/RYHURYX.png">
 
 * As I mentioned Above, CSP is Looks Impossible to Bypass. 
 * After 5 hrs, I Realized, Bypassing CSP is Rabbit Hole.
@@ -350,7 +350,7 @@ window.onload = () => {
 
 * This Javascript Loads with we Visit, `/personalize?image=<url>`
 
-<img src="https://i.imgur.com/PMybUaS.png"></img>
+<img src="https://i.imgur.com/PMybUaS.png">
 
 
 ## Exploit:
@@ -365,7 +365,7 @@ if (DEBUG_MODE) {
 
 * In the Above Code, `DEBUG_MODE` is Not Defined. 
 
-<img src="https://i.imgur.com/jSALZmW.png"></img>
+<img src="https://i.imgur.com/jSALZmW.png">
 
 * CSP is Set to defualt-src: 'self'. So, the Javascript files hosted in the server itself only work.
 
@@ -379,7 +379,7 @@ Payload:
 https://wsc-2022-web-2-bvel4oasra-uc.a.run.app/personalize?image=https://google.com/"><a id="DEBUG_MODE">
 
 ```
-<img src="https://i.imgur.com/naI2HH8.png"></img>
+<img src="https://i.imgur.com/naI2HH8.png">
 
 * We successfully Defined `DEBUG_MODE`, which is Before Undefined. Now, the Above error says that, `DEBUG_LOGGING_URL` is Undefined. 
 
@@ -392,13 +392,13 @@ https://wsc-2022-web-2-bvel4oasra-uc.a.run.app/personalize?image=https://google.
 * Here, Href is Used to set a value for the 
 `DEBUG_LOGGING_URL`.
 
-<img src="https://i.imgur.com/lWnC7G7.png"></img>
+<img src="https://i.imgur.com/lWnC7G7.png">
 
 * No Errors in Javascript Console!!
 
 * Upon Looking the Network Tab,
 
-<img src="https://i.imgur.com/ZMFYTv4.png"></img>
+<img src="https://i.imgur.com/ZMFYTv4.png">
 
 * A GET Request to Attacker.com with `?auth=&image=(base64(imageURL))`
 
@@ -414,8 +414,3 @@ if (DEBUG_MODE) {
 * Flag in the Admin bot cookie. In order to Get the Cookie, Send the about Payload to the Bot to get the Flag
 
 >## flag: wsc{d0m_cl0bb3r1ng_15_fun}
-
-
-
-
-
