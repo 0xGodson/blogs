@@ -432,6 +432,6 @@ if (DEBUG_MODE) {
 ```
 * `?auth` contains base64 Encoded cookie. Now, We dont Have any Cookies, So the The `?auth=` is Empty.
 
-* Flag in the Admin bot cookie. In order to Get the Cookie, Send the about Payload to the Bot to get the Flag
+* Flag in the Admin bot cookie. In order to Get the Cookie, Send the above Payload to the Bot to get the Flag
 
 >## flag: wsc{d0m_cl0bb3r1ng_15_fun}
