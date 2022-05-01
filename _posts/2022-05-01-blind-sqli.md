@@ -162,9 +162,9 @@ metals = Metal.query.filter(
 
 * Note: Flag is in Table `flag`. Like `select flag from flag` will return the flag
 * To Exfiltrate, Function like `substr` are Helpful. 
-```
+`
 substr in SQL is a function used to retrieve characters from a string. With the help of this function, you can retrieve any number of substrings from a single string
-```
+`
 * Flag Format: `flag{[a-zA-Z0-9_]}`
 * So, We can Use `substr` to select the first letter from the flag and check if that match `f`.
 
