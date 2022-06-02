@@ -1158,7 +1158,7 @@ jQuery.each(q.split(/[&;]/), function(){
 ```
 
 * Replacing `?,#,&,||` with `''`, and Converting `+` to `' '`. [url-decoding]
-* Lets Look into Nester `jQuery.each` - `jQuery.each(q.split(/[&;]/)`
+* Lets Look into Nested `jQuery.each` - `jQuery.each(q.split(/[&;]/)`
 
 ```javascript
 var key = decodeURIComponent(this.split('=')[0] || "");
