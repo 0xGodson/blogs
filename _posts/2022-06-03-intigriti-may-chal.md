@@ -917,6 +917,7 @@ var parse = function(path) {
 
 
 <img src="https://i.imgur.com/LAVkS6X.png">
+
 * In Simple Words, Match all Characters inside `[]`.
 
 * `match = /^([^[]+)(\[.*\])?$/.exec(path)`. Lets Look at the this Regex,
