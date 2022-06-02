@@ -1105,7 +1105,7 @@ var queryObject = function(a) {
 <img src="https://i.imgur.com/m1qxXiT.png">
 
 
-* Let Look into `parsedNew`. 
+* Let's Look into `parsedNew`. 
 
 ```javascript
 parseNew: function(){
