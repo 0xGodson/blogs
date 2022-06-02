@@ -1004,7 +1004,7 @@ var queryObject = function(a) {
 };
 ```
 
-* The IF Condition will run if `a.queryObject`  return something. `a` user  passed argument, `location.search,location.hash`. 
+* The IF Condition will run if `a.queryObject`  return something. `a` is user  passed argument, `location.search,location.hash`. 
 * ELSE, `parseNew` function will be Executed.
 * Lets look into`SET(key, val)` and `parseNew`.
 
