@@ -914,6 +914,8 @@ var parse = function(path) {
 * Some Weird Regex Matching Stuffs Uff.
 
 `rx:` 
+
+
 <img src="https://i.imgur.com/LAVkS6X.png">
 * In Simple Words, Match all Characters inside `[]`.
 
