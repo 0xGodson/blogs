@@ -921,7 +921,11 @@ var parse = function(path) {
 * In Simple Words, Match all Characters inside `[]`.
 
 * `match = /^([^[]+)(\[.*\])?$/.exec(path)`. Lets Look at the this Regex,
+
+
 `match:`
+
+
 <img src="https://i.imgur.com/MgFmFAn.png">
 
 * This `match` regex looks for array or Object Based `path`. like `?lol=a[b]=[c]`.
@@ -1007,6 +1011,7 @@ var queryObject = function(a) {
 * `SET(key, val)`:
 * required 2 arguments from user, `key` and `val`.
 * we already aware of `parse()` and `set()`?
+
 ```javascript
 SET: function(key, val) {
 
