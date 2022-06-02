@@ -867,7 +867,8 @@ var is = function(o, t) {
   * The Purpose if `is` function is to Check the Datatype of first passed argument. 
   * So If, is([],Array) will return true.
   <img src="https://i.imgur.com/yBxzFSm.png">
-  ---
+  
+---
 
 * Let see How `this.GET(key)` works
 
@@ -894,6 +895,7 @@ GET: function(key) {
 * `parse(key)`? 
 
 ---
+
 * Lets see How `parse` function works
 
 ```javascript
