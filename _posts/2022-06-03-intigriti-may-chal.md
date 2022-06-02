@@ -868,6 +868,7 @@ var is = function(o, t) {
   * So If, is([],Array) will return true.
   <img src="https://i.imgur.com/yBxzFSm.png">
   ---
+
 * Let see How `this.GET(key)` works
 
 ```javascript
