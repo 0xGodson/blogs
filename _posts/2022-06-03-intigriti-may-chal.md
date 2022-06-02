@@ -1339,7 +1339,7 @@ FilterXSS.prototype.process = function (html) {
 `url: http://localhost?page=abcd#a[__proto__][abcd]=xss`
 <img src="https://i.imgur.com/twJY8zl.png">
 * You can See, Our Input is present in the Object Prototype. `abcd:"xss"`. 
-* It is Possible to Overwrite the key-values inside the `Object Prototype`, Bcz The Our Input is Parsed Second, Before out input is parsed, the Values are Assigned. Bcz of this, We can Overwrite the Filters. 
+* It is Possible to Overwrite the key-values inside the `Object Prototype`, Bcz The Our Input is Parsed Second, Before our input is parsed, the Values are Assigned. Bcz of this, We can Overwrite the Filters Present in Object Prototype. 
 * Upload Looking at the Code, I found that, The `filterXSS` function depends in the Object `whiteList` which has only Limited no. of Allowed Tags and attributes. 
 <img src="https://i.imgur.com/aSJtgpN.png">
 * For example, `a` tag is allowed and `href, title, target` are the allowed attributes. After Searching for Script gadgets here, there is no Script Gadgets, So we Can't Get XSS by bypassing this `filtetXSS` unless if we have `mXSS`. ig so :)
