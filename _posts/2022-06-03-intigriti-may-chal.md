@@ -1103,6 +1103,8 @@ var queryObject = function(a) {
 * Else, `self.parsedNew` will be called. 
 * The `apply()` method is similar to the `call()` method
 <img src="https://i.imgur.com/m1qxXiT.png">
+
+
 * Let Look into `parsedNew`. 
 
 ```javascript
