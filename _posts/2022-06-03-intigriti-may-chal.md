@@ -1072,6 +1072,8 @@ var set = function(target, tokens, value) {
 * Yep, It's Big Code. Let me Explain this in Simple Words.
 * `tokens.shift();` Basically Shift function will return only one element one by one. 
 <img src="https://i.imgur.com/x65IlfL.png">
+
+
 * This `set` function required 3 arguments. `target, tokens and value`
 * `typeof` keyword will return the data type. In the First IF condition, if the datatype of the `target` is not `Object`, then `target` is set to `null`
 *  And Other IF ELSE conditions check the datatype of `target` with `is` function and calling `set`. 
