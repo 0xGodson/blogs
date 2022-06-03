@@ -346,6 +346,8 @@ Too Much Code, Lets Walk through the Code :)
   # Source Code:
   
  * This Page Required a GET Parameter `page`. like `?page=1`
+
+
 ```javascript
 var pl = $.query.get('page');
 
@@ -361,8 +363,9 @@ else{
 }
 ```
 
+
 * What is pages? Pages is a Javascript Object, If the GET parameter `page` is `1`, then the Above Code will innerHTML `<h5>Pollution is cons...</h5>`. 
-* According to our input (``?page=<input>``), the Bellow data will be innerHTMLed into the page with Respect to Pages Object which have only 4 Options.
+* According to our input (`?page=<input>`), the Bellow data will be innerHTMLed into the page with Respect to Pages Object which have only 4 Options.
 
 
 ```javascript
@@ -978,29 +981,19 @@ var queryObject = function(a) {
 * Ya, this.keys is a Object, `this.keys[base]` should return something, if it does't, then the while Loop condition will be set to False. 
 
 * Lets Again Look into `queryObject` function. 
+
 ```javascript
 var queryObject = function(a) {
-
 	var self = this;
-
 	self.keys = {};
-
 	if (a.queryObject) {
-
-	jQuery.each(a.get(), function(key, val) {
-
-	self.SET(key, val);
-
+		jQuery.each(a.get(), function(key, val) {
+		self.SET(key, val);
 	});
-
 	} else {
-
-	self.parseNew.apply(self, arguments);
-
+		self.parseNew.apply(self, arguments);
 	}
-
 	return self;
-
 };
 ```
 
@@ -1029,6 +1022,8 @@ return this;
 ```
 
 * Lets Look Into `set` function.
+
+
 ```javascript
 var set = function(target, tokens, value) {
 	var o, token = tokens.shift();
@@ -1068,6 +1063,7 @@ var set = function(target, tokens, value) {
 	return target;
 };
 ```
+
 
 * Yep, It's Big Code. Let me Explain this in Simple Words.
 * `tokens.shift();` Basically Shift function will return only one element one by one. 
@@ -1326,7 +1322,8 @@ FilterXSS.prototype.process = function (html) {
 };
 ```
 * This is a Huge Function with lots of Stuffs. btw, we Don't Need to Look into this. Bcoz, We already Have Prototype Pollution. We can Write or Overwrite key-values into `Object Prototype`.
-* In order to Bypass this function, We are Going to Overwrite the `process` to make that Weaker to allow our payload :)
+
+In order to Bypass this function, We are Going to Overwrite the `process` to make that Weaker to allow our payload :)
 ---
 ### Debug:
 * To Understand, What to Overwrite, I came back to Localsetup 
