@@ -8,7 +8,7 @@ share-img: /assets/img/wsc.jpg
 tags: [Web]
 ---
 
-### Edit: Actually I Came to Know that, there are already Public PoCs Avaliable to Solve this Challenge, After Others Posting Solutions. I am Happy Bcoz I was Able to Solve this Chal without Googling for the known PoCs :)
+### Edit: Actually I Came to Know that, there are already Public PoCs Avaliable to Solve this Challenge, After Others Posting Solutions. I am Happy Bcoz I was Able to Solve this Chal without Googling for the known PoCs :) [cringe:) but ok!]
 
 # Intigriti XSS Chal Writeup - May 2022
 
