@@ -187,7 +187,7 @@ for (tag of allTags){
 <img src="https://i.imgur.com/oMGid0L.png">
 
  * Turns out, `embed`,`form`,`iframe`,`image`,`img`,and `object` tags can create a `key` under `document` object.
-* Well, in `window` clobbering, we used `a` tag and `area` tag with `href` attribute to return our own value. Let See we can control the output. 
+* Well, in `window` clobbering, we used `a` tag and `area` tag with `href` attribute to return our own value. Let See if we can control the output. 
 
 ```javascript
 var mytags = ["embed","form","iframe","image","img","object"]
