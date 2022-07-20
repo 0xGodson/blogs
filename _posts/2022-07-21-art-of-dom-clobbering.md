@@ -5,7 +5,7 @@ subtitle: Clobbering
 cover-img: /assets/img/wsc.jpg
 thumbnail-img: /assets/img/wsc.jpg
 share-img: /assets/img/wsc.jpg
-tags: [Web][Research]
+tags: [Research]
 ---
 
 
