@@ -212,7 +212,7 @@ for (tag of mytags){
 # Javascript Prototype Chain
 * Prototype type chain is little bit huge topic. So i can't cover that here. 
 * You can learn that from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">here</a>. If you kow Tamil, you can refer my OWASP session about Prototype Pollution. There I gave a Detailed View about `prototype chain`. you can watch by clicking <a href="https://www.youtube.com/watch?v=54GYCl7Beh4">here</a>
-* Now, Lets this example:
+* Now, Lets Take this example:
 
 <img src="https://i.imgur.com/EvUHpPq.png">
 
