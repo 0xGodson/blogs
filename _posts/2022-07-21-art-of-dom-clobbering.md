@@ -99,7 +99,9 @@ Some Examples:
 * Now, How this Hidden `toString` call in `innerHTML` going to help us?
 * Well, If you found a Reflected HTMLi, this doesn't matter. But incase of DOM based HTMLi, then We need the Help of this hidden `toString` call in order to do something.
 * Let's Take a Example:
+ 
 <img src="https://i.imgur.com/rFhJfGn.png">
+ 
 * Here, I called `toString` function for an `h1` tag which return -> `[object HTMLHeadingElement]`
 * So, We can't actually Declare our own desire value, but still we can create a `key` under window Object. 
 * A Small Research can help us to find a Interesting behaviour amoung a tag.
