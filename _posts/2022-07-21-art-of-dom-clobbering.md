@@ -79,7 +79,7 @@ The document object **represents your web page**. If you want to access any elem
 
 ## Exploitation: 
 ### Hidden `toString` function call:
-* Sometimes in Javascript, some functions like `toString` are called when performing some actions
+* Sometimes in Javascript,when some functions like `toString` are called,some additional functions are also called internally.
 Some Examples: 
 
 
