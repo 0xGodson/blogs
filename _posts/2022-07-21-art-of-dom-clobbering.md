@@ -309,7 +309,7 @@ for (tag of mytags){
 ---
 
 # Conclusion
-* If you want to pratice this, you can check my challenge at https://0xgodson.me/my-ctfs/chal1/.
+* If you want to pratice this, you can check my challenge at https://0xgodson.me/my-ctfs/chal1/ and postswigger Labs too!
 
 
 ## Fix
