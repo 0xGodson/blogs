@@ -8,6 +8,8 @@ share-img: /assets/img/wsc.jpg
 tags: [Web][Research]
 ---
 
+
+
 # Agenda
 
 * What is Dom Clobbering?
