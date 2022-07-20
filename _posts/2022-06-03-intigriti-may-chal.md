@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Prototype Pollution to Overwrite XSS filters!
+title: Prototype Pollution to Overwrite XSS filters!!!
 subtitle: XSS | Prototype Pollution
 cover-img: /assets/img/wsc.jpg
 thumbnail-img: /assets/img/wsc.jpg
