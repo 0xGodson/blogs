@@ -79,7 +79,7 @@ The document object **represents your web page**. If you want to access any elem
 
 ## Exploitation: 
 ### Hidden `toString` function call:
-* Sometimes in Javascript,when some functions like `toString` are called,some additional functions are also called internally.
+* Sometimes in Javascript,when some functions like `toString` are called hiddenly when some functions are called. those functions use `toString` function internally for some purpose.
 Some Examples: 
 
 
@@ -97,7 +97,7 @@ Some Examples:
 
 
 * Now, How this Hidden `toString` call in `innerHTML` going to help us?
-* Well, If you found a Reflected HTMLi, this doesn't matter. But incase of DOM based HTMLi, then We need the Help of this hidden `toString` call in order to do something.
+* Well, If you found a Reflected HTMLi, then this doesn't matter. But incase of DOM based HTMLi, then We need the Help of this hidden `toString` call in order to do something.
 * Let's Take a Example:
  
 <img src="https://i.imgur.com/rFhJfGn.png">
@@ -280,7 +280,10 @@ for (tag of mytags){
 
 * Now, we can see out keys are directly stored into document as it own property.
 * So, According to `prototype chain`, our tag overrided the orginal property from its prototype.
-* Except `document.location`, we can clobber any thing in `document` Object. This mostly help us to bypass IF Conditions like `if(document.domain != "..."){}`
+* Except `document.location`, we can clobber any thing in `document` Object. This mostly help us to bypass IF Conditions like `if(document.domain != "..."){}` and maybe we can break the functionalities by overwriting over used tags!
+ 
+* Example:
+ 
  
  <img src="https://i.imgur.com/nxYbcJe.png">
 
