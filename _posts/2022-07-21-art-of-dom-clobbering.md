@@ -246,7 +246,7 @@ for (tag of mytags){
 
 Edit:
 
-* After some time, <a herf="https://twitter.com/IvarsVids">Ivar Vids</a> texted that, `myObj.__proto__.toString` is not the correct way of calling,and  mentioned to use `Object.prototype.toString.call(myObj)` instead of this. kudos to Ivar Vids
+* After some time, Ivar Vids texted that, `myObj.__proto__.toString` is not the correct way of calling,and  mentioned to use `Object.prototype.toString.call(myObj)` instead of this. kudos to <a herf="https://twitter.com/IvarsVids">IvarVids</a>
 * Why we should call the toString like `Object.prototype.toString.call(myObj)`? Well, Before Getting into that We need to know little bit about `toString`. You can completly Skip this if you only interested in Dom Clobbering
 * Most Common Data types in javascript are `String`,`Array`, `Number`.
 
