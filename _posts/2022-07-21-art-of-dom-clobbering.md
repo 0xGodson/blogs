@@ -280,6 +280,9 @@ for (tag of mytags){
 
 * Now, we can see out keys are directly stored into document as it own property.
 * So, According to `prototype chain`, our tag overrided the orginal property from its prototype.
+* Except `document.location`, we can clobber any thing in `document` Object. This mostly help us to bypass IF Conditions like `if(document.domain != "..."){}`
+ 
+ <img src="https://i.imgur.com/nxYbcJe.png">
 
 ---
 
