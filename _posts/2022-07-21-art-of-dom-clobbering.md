@@ -1,3 +1,4 @@
+
 ---
 layout: post
 title: An Art of Dom Clobbering - From Zero to Advance Level
@@ -243,11 +244,50 @@ for (tag of mytags){
 
 
 * You can see, Still we can access the Original `toString` function which printed `[object Object]`.
- 
- 
----
- 
- 
+
+Edit:
+
+* After some time, <a herf="https://twitter.com/IvarsVids">Ivar Vids</a> texted that, `myObj.__proto__.toString` is not the correct way of calling,and  mentioned to use `Object.prototype.toString.call(myObj)` instead of this. kudos to Ivar Vids
+* Why we should call the toString like `Object.prototype.toString.call(myObj)`? Well, Before Getting into that We need to know little bit about `toString`. You can completly Skip this if you only interested in Dom Clobbering
+* Most Common Data types in javascript are `String`,`Array`, `Number`.
+
+* Basically `Object`, `Number`,`Array` are build-in Constructor Functions which can be used to Create 
+`Objects`, `Numbers`, `Arrays` 
+
+<img src="https://i.imgur.com/lWBd0Vi.png">
+
+
+* The Below Images Shows that, all three Constructor Objects have a property `toString` in its prototype
+
+<img src="https://i.imgur.com/8lViXrI.png">
+
+
+* This is Tricky one, If you Look Closed to the image, `hasOwnProperty` is coming from `Object.prototype`. We already Saw, How `hasOwnProperty` works. 
+* Even the `hasOwnProperty` coming from `Object.prototype` it is searching for a `key` `toString` in `Object.prototype`.
+* To Understand Better
+
+<img src="https://i.imgur.com/L1k9u1l.png">
+
+* Here, We Have a Nested Object. `myobj2` is also a Object, so its Prototype is also equal to `Object.protoptype`
+* Another Example with Arrays:
+
+<img src="https://i.imgur.com/8glGFps.png">
+
+* Basically `includes` is a property comimg from its prototype [`Array.prototype`].`inclueds` will return `true/false` values. `true` of passed argument is present in the array, else it will return false. 
+* Even `myarr.__proto__.includes` is equal to `myarr.includes`, whiles using `myarr.__proto__.includes(2)`, the `includes` in not searching inside `myarr` but searching inside `myarr.__proto__`
+* Lets add a value to `Array.prototype`
+
+<img src="https://i.imgur.com/wlelcIg.png">
+
+* Now, You can clearly see, how the includes works. `toString` is also works similar to this. Even if we call the `toString` from its prototype with `__proto__`, to `toString` is not actually working with the `myObj` but with `myObj.__proto__` when we call `myObj.__proto__.toString`. 
+* When we Call `String.prototype.toString`, it will return as a `String`, If we call `Arrar.prototype.toString`, then it will convert the array to `string`. If we call the `Object.prototype.toString`, then it will return `[object <DATA TYPE>]`.
+
+<img src="https://i.imgur.com/s5o5oF7.png">
+
+* So, when we call `myObj.__proto__.toString()` we are not actually working with `myObj`
+ but working with `myObj.__proto__`.  `myObj.__proto__.toString()` == `Object.prototype.toString.call(myObj.__proto__)
+`
+--- 
 * Lets Get Back to the Question...
 
 ## Why it's not possible to Override Window Object and Why it is possible to override document Object?
