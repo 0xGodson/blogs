@@ -243,7 +243,11 @@ for (tag of mytags){
 
 
 * You can see, Still we can access the Original `toString` function which printed `[object Object]`.
+ 
+ 
 ---
+ 
+ 
 * Lets Get Back to the Question...
 
 ## Why it's not possible to Override Window Object and Why it is possible to override document Object?
