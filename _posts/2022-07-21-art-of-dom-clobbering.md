@@ -92,7 +92,11 @@ Some Examples:
 
 
 * Here Again, When Using template String Syntax, `toString` is automatically called!
+ 
+ 
 * Another Example, `Array.join` called automatically with using `Array.toString`. There are tons of examples around there. 
+ 
+ 
 ---
 
 
@@ -200,7 +204,10 @@ for (tag of mytags){
 
 <img src="https://i.imgur.com/cXRmWJr.png">
 
+ 
 * Nope, we can't find anything. So, Its not possible to return our own value.
+ 
+ 
 --- 
 
 # Why it's not possible to Override Window Object and Why it is possible to override document Object?
@@ -260,8 +267,11 @@ for (tag of mytags){
 
 
 * while javascript can't find the `whoami` from first chain `__proto__`, then it will automatically move to next chain untill the `__proto__` hit `null`.
-* This is the Reason why we can't override `window` clobbering
----
+
+ * This is the Reason why we can't override `window` clobbering
+
+ 
+ ---
 
 ## Why we can override document clobbering?
 * we can use any one of the above `tags` found to be helpful in document clobbering. for now, we are going to use `img` tag with `name` attribute.
