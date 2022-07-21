@@ -124,6 +124,11 @@ for (tag of allTags){
 
 
 * If we Run the About Javascript, We can find that, `a` tag and `area` tag doesn't return `[object...` when `toString` is called. Something interestingly happing with those 2 tags.
+ 
+<img src="https://i.imgur.com/UNDMG1J.png"> 
+ 
+ 
+ 
 * when we Supply a `href` attribute with these tags, we can see, the value of the `href` is returned when `toString` is called. 
 
 <img src="https://i.imgur.com/nJDLIRZ.png">
