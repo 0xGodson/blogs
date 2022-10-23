@@ -206,7 +206,7 @@ if (db.users[currentUser].ip !== '127.0.0.1') {
 > README file 
 
 
-	<img src="https://i.imgur.com/VVqPyWc.png"> 
+<img src="https://i.imgur.com/VVqPyWc.png"> 
 	
 	
 * The application is using the `x-real-ip` header to get the IP of the user
