@@ -468,7 +468,7 @@ document.body.lastElementChild.firstChild.nextElementSibling.firstChild.nextElem
 
 * Here, We can use DOM Navigations to navigate across elements in document.body. To learn more about dom navigation, click <a href="https://javascript.info/dom-navigation">here</a> 
 
-## Limited POC to click the First Post where the Flag is Stored Note: 
+## Limited POC to click the First Post where the Flag is Saved: 
 
 We need to use xss from previous challenges to do all there things 
 
