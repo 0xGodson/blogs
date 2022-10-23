@@ -529,7 +529,7 @@ if (window.saveSecret) {
 > MDN says 
 
 
-	<img src="https://i.imgur.com/weCttRS.png">
+<img src="https://i.imgur.com/weCttRS.png">
 
 
 * So, Yaa! There is no window/document object present in `Web Worker` API. So, we can write our own window/document objects there 😎 
