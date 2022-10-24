@@ -361,7 +361,7 @@ if (req.query.callback) {
 
 * And the regex is very restrictive. The `callback` parameter should match `/^[A-Za-z0-9_.]+$/`. That means: only letters, numbers, underscores and dots are allowed. No special characters at all. You can't bypass this. 
 
-* `backgroundTheme` and `colorTheme` parameters are similar. They need to satisfy this regex ```/^[#][0-9a-z]{6}$/````. Which means the length should be 6 chars, must start with `#` and can contain letters and numbers. No Special Characters! 
+* `backgroundTheme` and `colorTheme` parameters are similar. They need to satisfy the regex. Which means the length should be 6 chars, must start with `#` and can contain letters and numbers. No Special Characters! 
 
 >### How does the theme functionality work?
 
