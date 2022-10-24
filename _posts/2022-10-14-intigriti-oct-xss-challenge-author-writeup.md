@@ -370,17 +370,7 @@ if (req.query.callback) {
 
 * This Application using EJS Template Engine and if you look into the `theme.ejs`, 
 
-```js
-<% if(theme) {%>
-	<% if(theme.font && theme.background){ %>
-		opener.<%= theme.callback %>("<%= theme.background %>"," <%= theme.font %>")
-	<%} else  if(theme.background) {%>
-		opener.<%= theme.callback %>("<%= theme.background %>", "")
-	<%} else  if (theme.font){ %>
-		opener.<%= theme.callback %>("","<%= theme.font %>")
-	<% } %>
-<% } %>
-```
+<img src="https://i.imgur.com/q6vVCxl.png">
 
 * It responds with `opener.<callback>("...","...")` and it's inside a script tag. 
 * Here `opener` is the challenge window. 
