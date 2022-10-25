@@ -719,7 +719,7 @@ if (!db.nonces[RequestIp.getClientIp(req)]) {
 
 * So, for xss, If we Leaked the `nonce` somehow, we can use `<iframe srcdoc="<script nonce='leaked_nonce'>alert(1337)</script>">`
 
- ## Leaking the GUID and Nonce! 
+## Leaking the GUID and Nonce! 
 
 * We already know how to leak the secret, But how leak the nonce? nonce is constant for single ip and and different for every ip. 
 * Before going into the leaking part, lets see what we need to do to satisfy the checks and make our note body to parse 2nd time? 
