@@ -831,7 +831,9 @@ Edit: Still it is possible to Bypass this with `noscript` with `iframe` srcdoc w
 		```
 
 	* In the Note, we have a `a` tag with `href=[prototype_pollution_payload]`, so after creating the note with csrf, we again need to use `SOME` to click the xss note! 
-* Like, now we have a post with xss, next is create a new iframe 3 with srcdoc = ` <script>window.open("SOME1.html");window.open("SOME2.html");location.replace("[....]/challenge/begin")</script> ` 
+* Like, now we have a post with xss, next is create a new iframe 3 with srcdoc = 
+
+``` <script>window.open("SOME1.html");window.open("SOME2.html");location.replace("[....]/challenge/begin")</script> ``` 
 
 * `SOME1.html` will use DOM Navigations to click the xss Note, `SOME2.html` will click the `a` tag which contains the prototype pollution payload. after `SOME2.html` clicking the `a` tag, the iframe 3 will be redirected to the `href` link in the `a` tag which pollute the prototype and enable 2nd parsing which leads to xss! 
 
