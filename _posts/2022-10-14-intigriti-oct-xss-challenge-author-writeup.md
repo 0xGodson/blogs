@@ -13,7 +13,7 @@ tags: [xss]
 > ## <a href="//challenge-1022.intigriti.io">challenge-1022.intigriti.io</a>
 
 
-This month I created a Hard XSS Challenge for Intigriti. Ended up with Only 1 Official Solve. If you missed it and haven't tried yet, then try to solve yourself before reading the writeup! 
+*This month I created a Hard XSS Challenge for Intigriti. Ended up with Only 1 Official Solve. If you missed it and haven't tried yet, then try to solve yourself before reading the writeup!*
 ---
 
 Source Code: https://github.com/0xGodson/notes-app
