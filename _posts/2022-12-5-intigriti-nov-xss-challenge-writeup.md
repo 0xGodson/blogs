@@ -10,7 +10,7 @@ tags: [xss]
 
 # Intigriti's Nov XSS Challenge - writeup
 
-> Challenge URL https://challenge-1122.intigriti.io/
+> Challenge URL: https://challenge-1122.intigriti.io/
 
 Basically, this is also a note-taking application like my [previous month's challenge](https://challenge-1122.intigriti.io/). The goal of the challenge is to take over the admin's account which has the flag in it. 
 
