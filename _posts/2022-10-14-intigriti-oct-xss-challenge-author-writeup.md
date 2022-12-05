@@ -8,7 +8,7 @@ share-img: /assets/img/wsc.jpg
 tags: [xss]
 ---
 
-# Intigriti's October XSS Challenge - Author writeup 
+# Intigriti's October XSS Challenge - Author writeup :)
 
 > ## <a href="//challenge-1022.intigriti.io">challenge-1022.intigriti.io</a>
 
